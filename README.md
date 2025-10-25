@@ -230,5 +230,3 @@ For questions or contributions, please contact the Avantage AI team.
 ---
 
 Built with ❤️ using Next.js, Three.js, and GSAP
-
-
