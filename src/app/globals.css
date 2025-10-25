@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Horizon Hero Section Styles */
+.hero-container {
+  position: relative;
+  width: 100%;
+  min-height: 300vh;
+  background: #000;
+}
+
+.hero-fixed-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transition: transform 0.6s ease-out;
+  z-index: 5;
+}
+
+.hero-fixed-wrapper.scroll-up {
+  transform: translateY(-100vh);
+}
+
+.content-section.final-section {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero-container.exiting {
+  position: relative;
+}
+
+.hero-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+.side-menu {
+  position: fixed;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  width: 2rem;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.menu-icon:hover span {
+  background: #00d4ff;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  color: white;
+  font-size: 0.875rem;
+  letter-spacing: 0.3em;
+  font-weight: 300;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  pointer-events: none;
+  width: 90%;
+  max-width: 1200px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  color: #ff0000;
+  margin: 0;
+  overflow: hidden;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  text-align: center;
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.title-char {
+  display: inline-block;
+}
+
+.hero-subtitle {
+  margin-top: 2rem;
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  line-height: 1.8;
+}
+
+.subtitle-line {
+  margin: 0.5rem 0;
+}
+
+.scroll-progress {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  color: white;
+}
+
+.scroll-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  font-weight: 300;
+}
+
+.progress-track {
+  width: 100px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #0066ff);
+  transition: width 0.1s ease-out;
+}
+
+.section-counter {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  font-family: monospace;
+}
+
+.scroll-sections {
+  position: relative;
+  z-index: 10;
+}
+
+.content-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .side-menu {
+    left: 1rem;
+    gap: 2rem;
+  }
+
+  .scroll-progress {
+    bottom: 2rem;
+    right: 2rem;
+  }
+
+  .hero-title {
+    letter-spacing: 0.2em;
+    font-size: clamp(1.5rem, 6vw, 4rem);
+  }
+
+  .hero-subtitle {
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    letter-spacing: 0.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-icon span {
+    width: 1.5rem;
+  }
+
+  .scroll-progress {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    scale: 0.8;
+  }
+}
+
+
